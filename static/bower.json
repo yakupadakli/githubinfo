@@ -1,0 +1,21 @@
+{
+  "name": "githubapi",
+  "authors": [
+    "Yakup Adaklı <yakup.adakli@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "django",
+    "github",
+    "api"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
