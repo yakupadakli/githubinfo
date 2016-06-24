@@ -15,6 +15,7 @@
     <meta name="author" content="Yakup Adaklı">
 
     <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     {% block extra_styles %}{% endblock %}
@@ -23,19 +24,20 @@
     <div id="layout" class="col-md-12">
       <div class="sidebar col-md-3">
         <div class="header">
-          <h1 class="brand-title">Basic Github App</h1>
-          <h2 class="brand-tagline">Using Django, Requests, Bower and Pipeline</h2>
+          <h1 class="brand-title">{{ github_user.name }}</h1>
+          <h2 class="brand-tagline">
+            <a href="{{ github_user.html_url }}" target="_blank">
+              @{{ github_user.login }}
+            </a>
+          </h2>
 
           <nav class="nav">
-            <h3>Tools leveraged</h3>
+            <h3>{% trans 'Statistics' %}</h3>
               <ul class="nav-list">
-                <li class="nav-item">Github API</li>,
-                <li class="nav-item">Django</li>,
-                <li class="nav-item">Requests</li>,
-                <li class="nav-item">Bower</li>,
-                <li class="nav-item">Pipeline</li>,
-                <li class="nav-item">Primer CSS</li>,
-                <li class="nav-item">Pure Grid CSS</li>
+                <li class="nav-item">{% trans 'Public Repos' %}: {{ github_user.public_repos|default:0 }}</li>
+                <li class="nav-item">{% trans 'Public Gists' %}: {{ github_user.public_gists|default:0 }}</li>
+                <li class="nav-item">{% trans 'Followers' %}   : {{ github_user.followers|default:0 }}</li>
+                <li class="nav-item">{% trans 'Following' %}   : {{ github_user.following|default:0 }}</li>
               </ul>
           </nav>
         </div>

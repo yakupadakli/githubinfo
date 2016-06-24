@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api.apps.ApiConfig',
+    'github.apps.ApiConfig',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,6 +105,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 GITHUB_USERNAME = ""
+USER_BLOG_NAME = ""
+USER_BLOG_URL = ""
 
 try:
     from githubapi.local_settings import *

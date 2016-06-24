@@ -51,6 +51,10 @@ h3 {
     font-weight: 300;
     color: rgb(176, 202, 219);
 }
+.brand-tagline a:hover {
+    color: rgb(176, 202, 219);
+}
+
 
 .nav-list {
     margin: 0;
@@ -58,7 +62,6 @@ h3 {
     list-style: none;
 }
 .nav-item {
-    display: inline-block;
     *display: inline;
     zoom: 1;
 }
@@ -174,4 +177,14 @@ h3 {
         top: 0;
         bottom: 0;
     }
+}
+
+.avatar {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.list-group-item .info {
+    margin-left: 5px;
 }

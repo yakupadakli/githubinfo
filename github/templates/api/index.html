@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {{ github_user.name }} on Github
+{% endblock title %}
+
+{% block content %}
+  <div>
+    <section>
+      <div class="col-md-12">
+        <header class="post-header">
+          <h2 class="post-title">{% trans 'Basic Github Overview' %}</h2>
+        </header>
+        <img class="avatar" src="{{ github_user.avatar_url }}" width="300" height="300" >
+      </div>
+      <div class="col-md-6">
+        <h3>{% trans 'Information' %}</h3>
+        <div class="list-group">
+          <a href="{{ github_user.html_url }}" target="_blank" class="list-group-item">
+            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+            <span class="info">{{ github_user.name }}</span>
+          </a>
+          {% if github_user.location %}
+            <a href="#" class="list-group-item">
+              <i class="fa fa-globe fa-lg" aria-hidden="true"></i>
+              <span class="info">{{ github_user.location }}</span>
+            </a>
+          {% endif %}
+          <a href="#" class="list-group-item">
+            <i class="fa fa-book fa-lg" aria-hidden="true"></i>
+            <span class="badge">{{ github_user.public_repos }}</span>
+            <span class="info">{% trans 'Public Repos' %}</span>
+          </a>
+          <a href="#" class="list-group-item">
+            <i class="fa fa-user-secret fa-lg" aria-hidden="true"></i>
+            <span class="badge">{{ github_user.followers }}</span>
+            <span class="info">{% trans 'Followers' %}</span>
+          </a>
+          <a href="#" class="list-group-item">
+            <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+            <span class="badge">{{ github_user.following }}</span>
+            <span class="info">{% trans 'Following' %}</span>
+          </a>
+          {% if blog.url %}
+            <a href="{{ blog.url }}" class="list-group-item" target="_blank">
+              <i class="fa fa-rss fa-lg" aria-hidden="true"></i>
+              <span class="info">{{ blog.name|default:blog.url }}</span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock content %}
