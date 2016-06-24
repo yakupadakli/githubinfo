@@ -16,6 +16,7 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "primer-css": "^4.0.2"
   }
 }
