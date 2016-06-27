@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'githubapi.urls'
+ROOT_URLCONF = 'githubinfo.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'githubapi.wsgi.application'
+WSGI_APPLICATION = 'githubinfo.wsgi.application'
 
 
 # Database
@@ -109,6 +109,6 @@ USER_BLOG_NAME = ""
 USER_BLOG_URL = ""
 
 try:
-    from githubapi.local_settings import *
+    from githubinfo.local_settings import *
 except ImportError:
     print "No local settings found"

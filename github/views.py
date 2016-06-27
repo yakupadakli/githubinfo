@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 
 from github.api import Api
 from github.mixins import GithubMixin
-from githubapi import settings
+from githubinfo import settings
 
 
 class IndexView(GithubMixin, TemplateView):

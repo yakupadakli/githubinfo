@@ -1,7 +1,7 @@
 from django.core.cache import cache
 
 from github.api import Api
-from githubapi import settings
+from githubinfo import settings
 
 
 class GithubMixin(object):
