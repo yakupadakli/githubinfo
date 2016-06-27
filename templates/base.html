@@ -18,13 +18,23 @@
     <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <style>
+      .brand-title a {
+        color: #ffffff;
+      }
+      .brand-title a:hover {
+        text-decoration: none;
+      }
+    </style>
     {% block extra_styles %}{% endblock %}
   </head>
   <body>
     <div id="layout" class="col-md-12">
       <div class="sidebar col-md-3">
         <div class="header">
-          <h1 class="brand-title">{{ github_user.name }}</h1>
+          <h1 class="brand-title">
+            <a href="{% url 'index' %}">{{ github_user.name }}</a>
+          </h1>
           <h2 class="brand-tagline">
             <a href="{{ github_user.html_url }}" target="_blank">
               @{{ github_user.login }}

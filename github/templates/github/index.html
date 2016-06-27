@@ -21,13 +21,17 @@
             <i class="fa fa-user fa-lg" aria-hidden="true"></i>
             <span class="info">{{ github_user.name }}</span>
           </a>
+          <a href="mailto:{{ github_user.email }}" class="list-group-item">
+            <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+            <span class="info">{{ github_user.email }}</span>
+          </a>
           {% if github_user.location %}
             <a href="#" class="list-group-item">
               <i class="fa fa-globe fa-lg" aria-hidden="true"></i>
               <span class="info">{{ github_user.location }}</span>
             </a>
           {% endif %}
-          <a href="#" class="list-group-item">
+          <a href="{% url 'repos' %}" class="list-group-item">
             <i class="fa fa-book fa-lg" aria-hidden="true"></i>
             <span class="badge">{{ github_user.public_repos }}</span>
             <span class="info">{% trans 'Public Repos' %}</span>
