@@ -8,6 +8,7 @@ class Api(object):
         self._user_url = "users/%s"
         self._user_repos_url = "users/%s/repos"
         self._user_followers_url = "users/%s/followers"
+        self._user_following_url = "users/%s/following"
 
     def _build_url(self, target):
         return "https://%s%s" % (self._host, target)
@@ -33,3 +34,8 @@ class Api(object):
         followers_url = self._user_followers_url % username
         followers_data = self._get(followers_url)
         return followers_data
+
+    def get_user_following(self, username):
+        following_url = self._user_following_url % username
+        following_data = self._get(following_url)
+        return following_data

@@ -44,6 +44,26 @@ class FollowerListView(GithubMixin, TemplateView):
             for follower in follower_list:
                 user = api.get_user(follower.get("login"))
                 user_list.append(user)
-            cache.set("follower_list", user_list)
+            follower_list = user_list
+            cache.set("follower_list", follower_list)
         context["follower_list"] = follower_list
+        return context
+
+
+class FollowingListView(GithubMixin, TemplateView):
+    template_name = "github/following_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(FollowingListView, self).get_context_data(**kwargs)
+        following_list = cache.get("following_list")
+        if not following_list:
+            api = Api()
+            user_list = []
+            following_list = api.get_user_following(getattr(settings, "GITHUB_USERNAME", ""))
+            for following in following_list:
+                user = api.get_user(following.get("login"))
+                user_list.append(user)
+            following_list = user_list
+            cache.set("following_list", following_list)
+        context["following_list"] = following_list
         return context
