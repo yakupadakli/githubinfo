@@ -6,7 +6,8 @@ class Api(object):
     def __init__(self):
         self._host = "api.github.com/"
         self._user_url = "users/%s"
-        self._user_repo_url = "users/%s/repos"
+        self._user_repos_url = "users/%s/repos"
+        self._user_followers_url = "users/%s/followers"
 
     def _build_url(self, target):
         return "https://%s%s" % (self._host, target)
@@ -24,6 +25,11 @@ class Api(object):
         return user_data
 
     def get_user_repos(self, username):
-        repo_url = self._user_repo_url % username
-        repo_data = self._get(repo_url)
-        return repo_data
+        repos_url = self._user_repos_url % username
+        repos_data = self._get(repos_url)
+        return repos_data
+
+    def get_user_followers(self, username):
+        followers_url = self._user_followers_url % username
+        followers_data = self._get(followers_url)
+        return followers_data
